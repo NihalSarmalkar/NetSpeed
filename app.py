@@ -14,7 +14,7 @@ def index():
         test_speed = speedtest.Speedtest()
         
         test_speed.get_servers()
-        print(test_speed)
+        
         
 #         bestServer=test_speed.get_best_server()
         
