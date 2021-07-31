@@ -16,19 +16,19 @@ def index():
         test_speed.get_servers()
         
         
-#         bestServer=test_speed.get_best_server()
+        bestServer=test_speed.get_best_server()
         
 
-#         hostaddress=" Location at "+bestServer['country']+","+bestServer['name']
+        hostaddress=" Location at "+bestServer['country']+","+bestServer['name']
 
         
-#         download_result=test_speed.download()
+        download_result=test_speed.download()
         
-#         upload_result=test_speed.upload()
-#         ping_result=test_speed.results.ping
+        upload_result=test_speed.upload()
+        ping_result=test_speed.results.ping
 
-        str1="Download - "+str(round(test_speed.download()/1024/1024,2))+" Mbps"
-        str2="Upload - "+str(round(test_speed.upload()/1024/1024,2))+" Mbps"
+        str1="Download - "+str(round(download_result.download()/1024/1024,2))+" Mbps"
+        str2="Upload - "+str(round(upload_result.upload()/1024/1024,2))+" Mbps"
 
         str3="Ping is "+str(ping_result)
         return render_template('index.html',hostaddress=hostaddress,str1=str1,str2=str2,str3=str3)
