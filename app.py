@@ -9,6 +9,7 @@ app=Flask(__name__)
 def index():
     
     
+    
     if request.method=='POST':
         test_speed = speedtest.Speedtest()
         
@@ -26,8 +27,8 @@ def index():
         upload_result=test_speed.upload()
         ping_result=test_speed.results.ping
 
-        str1="Download - "+str(round(download_result/1024/1024,2))+" Mbps"
-        str2="Upload - "+str(round(upload_result/1024/1024,2))+" Mbps"
+        str1="Download - "+str(round(download_result/1024/1024,2))+" Mbps"+str(round(test_speed.download()/1024/1024,2))
+        str2="Upload - "+str(round(upload_result/1024/1024,2))+" Mbps"+str(round(test_speed.upload()/1024/1024,2))
 
         str3="Ping is "+str(ping_result)
         return render_template('index.html',hostaddress=hostaddress,str1=str1,str2=str2,str3=str3)
